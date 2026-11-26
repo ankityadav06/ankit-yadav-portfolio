@@ -1,0 +1,109 @@
+:root {
+  color-scheme: light;
+  --paper: #f6f4ec;
+  --ink: #172821;
+  --muted: #485d52;
+  --rule: #cbd4c7;
+  --forest: #12392c;
+  --lime: #d5fa80;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1rem/1.6 system-ui, sans-serif;
+}
+a { color: inherit; text-underline-offset: .25em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid #936128; outline-offset: 4px; }
+.skip { position: absolute; top: -4rem; left: 1rem; padding: .5rem 1rem; background: white; }
+.skip:focus { top: .5rem; }
+.shell { width: min(calc(100% - 3rem), 70rem); margin-inline: auto; }
+.header, nav, .actions, .footer { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.header, .footer { justify-content: space-between; padding-block: 1.25rem; }
+.header { border-bottom: 1px solid var(--rule); }
+.brand, nav a { text-decoration: none; }
+.brand { font-weight: 800; }
+nav a:hover { text-decoration: underline; }
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: clamp(2rem, 7vw, 6rem);
+  padding-block: clamp(3rem, 10vw, 7rem);
+}
+h1, h2, h3, p { margin: 0; }
+h1, h2 { font-family: Georgia, serif; font-weight: 500; }
+h1 { font-size: clamp(4rem, 11vw, 9rem); line-height: .85; letter-spacing: -.075em; margin-block: 1.25rem; }
+h1 span { color: #527c41; }
+h2 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -.045em; }
+h3 { font-size: 1.26rem; line-height: 1.25; }
+.label, .tools, figcaption { font: 600 .78rem/1.5 ui-monospace, monospace; letter-spacing: .065em; }
+.label { text-transform: uppercase; color: var(--muted); }
+.intro { max-width: 32ch; font-size: clamp(1.15rem, 2.4vw, 1.45rem); color: var(--muted); }
+.actions { margin-top: 1.6rem; gap: .75rem; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .65rem 1rem;
+  border: 1px solid var(--forest);
+  border-radius: .3rem;
+  background: var(--forest);
+  color: white;
+  text-decoration: none;
+  font-weight: 650;
+}
+.button:hover { background: var(--lime); color: var(--forest); }
+.secondary { background: transparent; color: var(--forest); }
+.visual {
+  margin: 0;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border-radius: .7rem;
+  background: var(--forest);
+  color: white;
+}
+.visual figcaption { color: var(--lime); }
+.visual ol { list-style: none; padding: 0; margin: 1rem 0 0; }
+.visual li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: .2rem .7rem;
+  padding: .9rem 0;
+  border-top: 1px solid #517269;
+}
+.visual li span { color: var(--lime); font: .8rem/2 ui-monospace, monospace; }
+.visual small { grid-column: 2; color: #d6e7dd; }
+.section { border-top: 1px solid var(--rule); padding-block: clamp(2rem, 6vw, 4rem); }
+.section h2 { margin-bottom: 1.6rem; }
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .65rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--rule);
+  border-radius: .6rem;
+  background: #fffdf7;
+}
+.featured { background: #e7efd9; }
+.card p:not(.label), .entry p, .entry li { color: var(--muted); }
+.card .tools { margin-top: auto; }
+.card a, .footer a { font-weight: 650; }
+.entry { display: grid; grid-template-columns: 1fr 2fr; gap: .6rem 2rem; border-top: 1px solid var(--rule); padding: 1.25rem 0; }
+.entry p + p, .entry h3 + p { margin-top: .35rem; }
+.entry ul { margin: 0; padding-left: 1.15rem; }
+.contact { padding: clamp(1.5rem, 5vw, 3rem); background: var(--lime); border-radius: .6rem; }
+.contact p { margin: .55rem 0 1rem; }
+.footer { color: var(--muted); font-size: .9rem; }
+@media (max-width: 680px) {
+  .shell { width: calc(100% - 2rem); }
+  .header, nav { gap: .8rem; }
+  .hero, .projects, .entry { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
